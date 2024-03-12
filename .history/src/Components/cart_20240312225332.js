@@ -1,29 +1,21 @@
 import React, { useState, useEffect } from "react";
-
+import { BiSolidUpArrow, BiSolidDownArrow } from "react-icons/bi";
 import Nav from './Nav'
 import './cart.css'
 
 function Cart() {
     const [products, setProducts] = useState([
-        { id: "1", name: "Product 1", price: 100, quantity: 1, image: "https://images.unsplash.com/photo-1564466809058-bf4114d55352?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fHByb2R1Y3R8ZW58MHx8MHx8fDA%3D" },
-        { id: "2", name: "Product 2", price: 200, quantity: 1, image: "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D" },
-        { id: "3", name: "Product 3", price: 300, quantity: 1, image: "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D" },
-        { id: "4", name: "Product 4", price: 400, quantity: 1, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2R1Y3R8ZW58MHx8MHx8fDA%3D" },
-        { id: "5", name: "Product 5", price: 500, quantity: 1, image: "https://images.unsplash.com/photo-1553456558-aff63285bdd1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb2R1Y3R8ZW58MHx8MHx8fDA%3D" },
-        { id: "6", name: "Product 6", price: 600, quantity: 1, image: "https://images.unsplash.com/photo-1553456558-aff63285bdd1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb2R1Y3R8ZW58MHx8MHx8fDA%3D" },
-        { id: "7", name: "Product 7", price: 700, quantity: 1, image: "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHByb2R1Y3R8ZW58MHx8MHx8fDA%3D" }
+        { id: "1", name: "Product 1", price: 100, quantity: 0, image: "https://images.unsplash.com/photo-1564466809058-bf4114d55352?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fHByb2R1Y3R8ZW58MHx8MHx8fDA%3D" },
+        { id: "2", name: "Product 2", price: 200, quantity: 0, image: "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D" },
+        { id: "3", name: "Product 3", price: 300, quantity: 0, image: "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D" },
+        { id: "4", name: "Product 4", price: 400, quantity: 0, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2R1Y3R8ZW58MHx8MHx8fDA%3D" },
+        { id: "5", name: "Product 5", price: 500, quantity: 0, image: "https://images.unsplash.com/photo-1553456558-aff63285bdd1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb2R1Y3R8ZW58MHx8MHx8fDA%3D" },
+        { id: "6", name: "Product 6", price: 600, quantity: 0, image: "https://images.unsplash.com/photo-1553456558-aff63285bdd1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb2R1Y3R8ZW58MHx8MHx8fDA%3D" },
+        { id: "7", name: "Product 7", price: 700, quantity: 0, image: "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHByb2R1Y3R8ZW58MHx8MHx8fDA%3D" }
     ]);
 
     const [total, setTotal] = useState(0);
     const [cartItems, setCartItems] = useState(0);
-    
-    useEffect(() => {
-    let initialTotal = 0;
-    products.forEach(product => {
-        initialTotal += product.price * product.quantity;
-    });
-    setTotal(initialTotal);
-}, [products]);
 
     useEffect(() => {
         let newCartItems = 0;
@@ -63,14 +55,11 @@ function Cart() {
         setCartItems(0);
     };
 
- const removeFromCart = (index) => {
+   const removeFromCart = (index) => {
     const updatedProducts = [...products];
-    const product = updatedProducts[index];
-    if (product.quantity > 0) {
-        setTotal(prevTotal => prevTotal - product.price * product.quantity);
-        updatedProducts.splice(index, 1); // Remove the product from the array
-        setProducts(updatedProducts);
-    }
+    updatedProducts.splice(index, 1);
+    setProducts(updatedProducts);
+    updateTotal(); // Call updateTotal after removing a product
 };
 
 

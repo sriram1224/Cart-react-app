@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import { BiSolidUpArrow, BiSolidDownArrow } from "react-icons/bi";
 import Nav from './Nav'
 import './cart.css'
 
@@ -16,14 +16,6 @@ function Cart() {
 
     const [total, setTotal] = useState(0);
     const [cartItems, setCartItems] = useState(0);
-    
-    useEffect(() => {
-    let initialTotal = 0;
-    products.forEach(product => {
-        initialTotal += product.price * product.quantity;
-    });
-    setTotal(initialTotal);
-}, [products]);
 
     useEffect(() => {
         let newCartItems = 0;
@@ -63,14 +55,11 @@ function Cart() {
         setCartItems(0);
     };
 
- const removeFromCart = (index) => {
+   const removeFromCart = (index) => {
     const updatedProducts = [...products];
-    const product = updatedProducts[index];
-    if (product.quantity > 0) {
-        setTotal(prevTotal => prevTotal - product.price * product.quantity);
-        updatedProducts.splice(index, 1); // Remove the product from the array
-        setProducts(updatedProducts);
-    }
+    updatedProducts.splice(index, 1);
+    setProducts(updatedProducts);
+    updateTotal(); // Call updateTotal after removing a product
 };
 
 

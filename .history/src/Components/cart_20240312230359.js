@@ -16,14 +16,6 @@ function Cart() {
 
     const [total, setTotal] = useState(0);
     const [cartItems, setCartItems] = useState(0);
-    
-    useEffect(() => {
-    let initialTotal = 0;
-    products.forEach(product => {
-        initialTotal += product.price * product.quantity;
-    });
-    setTotal(initialTotal);
-}, [products]);
 
     useEffect(() => {
         let newCartItems = 0;
