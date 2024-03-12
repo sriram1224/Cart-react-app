@@ -1,0 +1,12 @@
+.product-container{
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    width: 40%;
+    position: relative;
+}
+
+.product-container img{
+    width: 100px;
+    height: 100px;
+}

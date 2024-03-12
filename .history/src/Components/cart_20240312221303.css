@@ -1,0 +1,50 @@
+.product-container{
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    width: 50%;
+    position: relative;
+    left: 28%;
+    text-align: center;
+    margin-top: 20px;
+    border: 2px solid rgb(174, 170, 170);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.product-container img{
+    width: 100px;
+    height: 100px;
+}
+.rm-button{
+    display: flex;
+    align-items: center;
+}
+.rm-button button{
+    
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-quantity button{
+    background-color: rgb(152, 255, 7);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.text{
+
+    display: flex;
+    text-align: center;
+    gap: 10px;
+}
+.text p{
+    text-align: center;
+}

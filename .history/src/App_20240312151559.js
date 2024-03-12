@@ -4,7 +4,7 @@ import Cart from './Components/cart.js';
 function App() {
   return (
     <div className="App">
-      
+      <Nav />
       <Cart />
     </div>
   );

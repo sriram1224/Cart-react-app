@@ -1,0 +1,23 @@
+.product-container{
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    width: 50%;
+    position: relative;
+    left: 28%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.product-container img{
+    width: 100px;
+    height: 100px;
+}
+.rm-button{
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
